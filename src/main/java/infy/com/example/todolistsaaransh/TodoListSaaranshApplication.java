@@ -1,4 +1,7 @@
 package infy.com.example.todolistsaaransh;
+/**
+ * This class is a main class
+ */
 
 import infy.com.example.todolistsaaransh.Model.TaskEntity;
 import infy.com.example.todolistsaaransh.Repository.TaskRepository;
@@ -10,6 +13,11 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class TodoListSaaranshApplication {
 
+    /**
+     * This method is used to start our application
+     * Main class
+     * @author Saaransh Shaw
+     */
     public static void main(String[] args) {
         SpringApplication.run(TodoListSaaranshApplication.class, args);
     }

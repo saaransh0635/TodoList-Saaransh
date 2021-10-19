@@ -25,6 +25,8 @@ dependencies {
     implementation 'com.luxsuen:jsonutil:1.0.0'
     implementation 'org.kopitubruk.util:JSONUtil:1.10.4-java7'
     implementation 'org.jsslutils:jsslutils-test-helpers:1.0.8'
+    implementation 'org.hibernate:hibernate-validator:7.0.1.Final'
+
     compileOnly 'org.projectlombok:lombok'
     runtimeOnly 'com.h2database:h2'
     annotationProcessor 'org.projectlombok:lombok'

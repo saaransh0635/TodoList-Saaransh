@@ -1,13 +1,20 @@
 package infy.com.example.todolistsaaransh.Controller;
 
+/**
+ * This class is for creating a service layer for the functions required in our application
+ */
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import infy.com.example.todolistsaaransh.Model.TaskEntity;
 import infy.com.example.todolistsaaransh.Repository.TaskRepository;
 import infy.com.example.todolistsaaransh.Service.TaskServiceImpl;
 import infy.com.example.todolistsaaransh.util.JsonUtil;
 import net.minidev.json.JSONUtil;
+import org.aspectj.lang.annotation.Before;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -19,6 +26,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.mock.web.MockHttpServletRequest;
+import org.springframework.test.context.event.annotation.BeforeTestClass;
 import org.springframework.test.context.junit.jupiter.web.SpringJUnitWebConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -51,9 +59,18 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+
 @WebMvcTest(TaskController.class)
 class TaskControllerTest {
 
+
+    @BeforeEach
+     void setup() throws ParseException {
+
+        TaskEntity task1 = new TaskEntity(1l, "Task 1", 23, dateFormat.parse("01-01-1994"));
+        TaskEntity task_2 = new TaskEntity(2l, "Task 2", 27, dateFormat.parse("01-01-1994"));
+        TaskEntity task_3 = new TaskEntity(3l, "Task 3", 31, dateFormat.parse("01-01-1994"));
+    }
     @Autowired
     private MockMvc mockMvc;
 
@@ -69,10 +86,11 @@ class TaskControllerTest {
     @Autowired
     ObjectMapper mapper;
 
-    @MockBean
-    TaskEntity taskEntity;
+    //@MockBean
+    //TaskEntity taskEntity;
 
     private final static DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+
 
 
 
